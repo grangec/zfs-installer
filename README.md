@@ -15,7 +15,7 @@ ZFS installer is a shell script program that fully prepares ZFS on a system, and
 - [Help](#help)
 - [Credits](#credits)
 
-## Project status
+## Original Project status
 
 The project is, sadly, closed.
 
@@ -25,11 +25,17 @@ The ZFS developers decided to work together with Canonical, which makes sense. A
 
 As of Ubuntu 22.04, those who want to easily prepare non-trivial ZFS setups (e.g. encryption+mirroring) can still do it easily (although in limited form, e.g. no EFI partition mirroring, and so on), by using the Ubuntu installer to configure a ZFS scheme, then adding new volumes after the first boot.
 
+## grangec fork
+
+reopen to test with Ubuntu desktop 24.04
+
+bash script tinyurl : https://tinyurl.com/grangec-zfs-installer-dev2
+
 ## Requirements and functionality
 
 The program currently supports:
 
-- Ubuntu Desktop 18.04.x/20.04/22.04 Live
+- Ubuntu Desktop 18.04.x/20.04/22.04/24.04 Live
 - Ubuntu Server 18.04.x/20.04/22.04 Live
 - Linux Mint 19.x, 20
 - Debian 10.x/11.x Live (desktop environment required)
@@ -62,7 +68,7 @@ The advantages of this project over the Ubuntu installer are:
 Start the live CD of a supported Linux distribution, then open a terminal and execute:
 
 ```sh
-GET https://git.io/JEw00 | sudo bash
+GET https://tinyurl.com/grangec-zfs-installer-dev2 | sudo bash
 ```
 
 then follow the instructions; halfway through the procedure, the GUI installer of the O/S will be launched.
@@ -72,7 +78,7 @@ then follow the instructions; halfway through the procedure, the GUI installer o
 Ubuntu Server requires a slightly different execution procedure:
 
 - when the installer welcome screen shows up, tap `Ctrl+Alt+F2`,
-- then type `curl -L https://git.io/JEw00 | sudo bash`.
+- then type `curl -L https://tinyurl.com/grangec-zfs-installer-dev2 | sudo bash`.
 
 then follow the instructions.
 

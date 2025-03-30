@@ -475,7 +475,7 @@ In order to stop the procedure, hit Esc twice during dialogs (excluding yes/no o
 '
 
   if [[ -z ${ZFS_NO_INFO_MESSAGES:-} ]]; then
-    whiptail --msgbox "$dialog_message" 30 100
+    whiptail --msgbox "$dialog_message" 30 80
   fi
 }
 
