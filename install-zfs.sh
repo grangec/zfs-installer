@@ -1085,7 +1085,7 @@ Proceed with the configuration as usual, then, at the partitioning stage:
   if command -v "ubiquity" > /dev/null 2>&1; then
     DISPLAY=:0 ubiquity --no-bootloader
   else
-    DISPLAY=:0 /snap/bin/ubuntu-desktop-bootstrap
+    sudo -u ubuntu bash -c 'DISPLAY=:0 /snap/bin/ubuntu-desktop-bootstrap'
   fi
 
 
