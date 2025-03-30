@@ -526,7 +526,7 @@ function find_suitable_disks {
   # Iterating via here-string generates an empty line when no devices are found. The options are
   # either using this strategy, or adding a conditional.
   #
-  candidate_disk_ids=$(find /dev/disk/by-id -regextype awk -regex '.+/(ata|nvme|scsi|mmc)-.+' -not -regex '.+-part[0-9]+$' | sort)
+  candidate_disk_ids=$(find /dev/disk/by-id -regextype awk -regex '.+/(ata|nvme|wwn|scsi|mmc)-.+' -not -regex '.+-part[0-9]+$' | sort)
   mounted_devices="$(df | awk 'BEGIN {getline} {print $1}' | xargs -n 1 lsblk -no pkname 2> /dev/null | sort -u || true)"
 
   while read -r disk_id || [[ -n $disk_id ]]; do
@@ -1085,7 +1085,7 @@ Proceed with the configuration as usual, then, at the partitioning stage:
   if command -v "ubiquity" > /dev/null 2>&1; then
     DISPLAY=:0 ubiquity --no-bootloader
   else
-    sudo -u ubuntu bash -c 'DISPLAY=:0 /snap/bin/ubuntu-desktop-bootstrap'
+    sudo -u "$SUDO_USER" bash -c "DISPLAY=:0 /snap/bin/ubuntu-desktop-bootstrap"
   fi
 
 
