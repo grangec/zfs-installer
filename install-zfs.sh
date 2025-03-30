@@ -475,7 +475,7 @@ In order to stop the procedure, hit Esc twice during dialogs (excluding yes/no o
 '
 
   if [[ -z ${ZFS_NO_INFO_MESSAGES:-} ]]; then
-    whiptail --msgbox "$dialog_message" 30 80
+    whiptail --msgbox "$dialog_message" 30 100
   fi
 }
 
@@ -1082,7 +1082,13 @@ Proceed with the configuration as usual, then, at the partitioning stage:
   #
   sudo -u "$SUDO_USER" env DISPLAY=:0 xhost +
 
-  DISPLAY=:0 ubiquity --no-bootloader
+  if command -v "ubiquity" > /dev/null 2>&1; then
+    DISPLAY=:0 ubiquity --no-bootloader
+  else
+    DISPLAY=:0 /snap/bin/ubuntu-desktop-bootstrap
+  fi
+
+
 
   swapoff -a
 

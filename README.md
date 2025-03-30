@@ -68,7 +68,7 @@ The advantages of this project over the Ubuntu installer are:
 Start the live CD of a supported Linux distribution, then open a terminal and execute:
 
 ```sh
-GET https://tinyurl.com/grangec-zfs-installer-dev2 | sudo bash
+sudo bash -c "GET https://tinyurl.com/grangec-zfs-installer-dev2 | bash"
 ```
 
 then follow the instructions; halfway through the procedure, the GUI installer of the O/S will be launched.
